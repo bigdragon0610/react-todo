@@ -1,10 +1,20 @@
 import { doc, setDoc } from "firebase/firestore";
 
-const AddButton = ({ todosCollectionRef }) => {
+const AddButton = ({ todosCollectionRef, id, setTodos }) => {
+  const title = `${id + 1}番目`;
+  const detail = `${id + 1}番目のTODOです`;
+  const created_at = Date();
   const createTodo = async () => {
-    await setDoc(doc(todosCollectionRef), {
-      title: "追加",
-      detail: "追加ボタンからの追加",
+    await setDoc(doc(todosCollectionRef, `${id + 1}`), {
+      title: title,
+      detail: detail,
+      created_at: created_at,
+    });
+    setTodos((prevTodos) => {
+      return [
+        { title: title, detail: detail, created_at: created_at },
+        ...prevTodos,
+      ];
     });
   };
   return (
