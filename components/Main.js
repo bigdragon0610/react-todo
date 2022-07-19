@@ -1,6 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase-config";
+import AddButton from "./AddButton";
 import Todo from "./Todo";
 
 const Main = () => {
@@ -16,9 +17,7 @@ const Main = () => {
   }, []);
   return (
     <main className="flex flex-wrap gap-5 p-5">
-      <section className="w-60 h-60 bg-blue-200 shadow-md cursor-pointer transition-all hover:bg-blue-300">
-        <p className="text-4xl text-center leading-[240px]">+</p>
-      </section>
+      <AddButton todosCollectionRef={todosCollectionRef} />
       {todos.map((todo) => {
         return <Todo props={todo} />;
       })}
