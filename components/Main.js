@@ -12,7 +12,7 @@ const Main = () => {
     const getTodos = async () => {
       const q = query(todosCollectionRef, orderBy("created_at", "desc"));
       const data = await getDocs(q);
-      setTodos(data.docs.map((doc) => ({ ...doc.data() })));
+      setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getTodos();
   }, []);
@@ -24,7 +24,13 @@ const Main = () => {
         setTodos={setTodos}
       />
       {todos.map((todo) => {
-        return <Todo props={todo} />;
+        return (
+          <Todo
+            todo={todo}
+            todosCollectionRef={todosCollectionRef}
+            setTodos={setTodos}
+          />
+        );
       })}
     </main>
   );
