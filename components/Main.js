@@ -18,11 +18,7 @@ const Main = () => {
   }, []);
   return (
     <main className="flex flex-wrap mx-auto my-10 gap-5 xl:w-[1280px] lg:w-[1020px] md:w-[760px] w-[520px]">
-      <AddButton
-        todosCollectionRef={todosCollectionRef}
-        id={todos.length}
-        setTodos={setTodos}
-      />
+      <AddButton todosCollectionRef={todosCollectionRef} setTodos={setTodos} />
       {todos.map((todo) => {
         return (
           <Todo
