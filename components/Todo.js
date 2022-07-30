@@ -39,32 +39,30 @@ const Todo = ({ todo, todosCollectionRef, setTodos }) => {
   };
 
   return (
-    <>
-      <section className="w-60 h-60 bg-blue-50 p-3 shadow-md box-border">
-        <input
-          className="box-border overflow-scroll bg-transparent font-bold text-xl w-full outline-0 mb-2 h-6"
-          defaultValue={todo.title}
-          onFocus={updateTodoState}
-          onBlur={updateTodo}
-          ref={titleRef}
-        ></input>
-        <textarea
-          className="whitespace-pre-wrap overflow-scroll h-40 bg-transparent w-full resize-none box-border outline-0 block"
-          defaultValue={todo.detail}
-          onFocus={updateTodoState}
-          onBlur={updateTodo}
-          ref={detailRef}
-        ></textarea>
-        <div className="w-full flex">
-          <button
-            className="cursor-pointer ml-auto my-auto h-6"
-            onClick={deleteTodo}
-          >
-            <MdOutlineDeleteOutline className="text-2xl" />
-          </button>
-        </div>
-      </section>
-    </>
+    <section className="w-60 h-60 bg-blue-50 p-3 shadow-md box-border">
+      <input
+        className="box-border overflow-scroll bg-transparent font-bold text-xl w-full outline-0 mb-2 h-6"
+        defaultValue={todo.title}
+        onFocus={updateTodoState}
+        onBlur={updateTodo}
+        ref={titleRef}
+      ></input>
+      <textarea
+        className="whitespace-pre-wrap overflow-scroll h-40 bg-transparent w-full resize-none box-border outline-0 block"
+        defaultValue={todo.detail}
+        onFocus={updateTodoState}
+        onBlur={updateTodo}
+        ref={detailRef}
+      ></textarea>
+      <div className="w-full flex">
+        <button
+          className="cursor-pointer ml-auto my-auto h-6"
+          onClick={deleteTodo}
+        >
+          <MdOutlineDeleteOutline className="text-2xl" />
+        </button>
+      </div>
+    </section>
   );
 };
 
