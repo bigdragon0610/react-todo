@@ -40,14 +40,14 @@ const AddButton = ({ todosCollectionRef, setTodos }) => {
         type="text"
         name="title"
         placeholder="title..."
-        className="bg-transparent font-bold text-xl mb-2 w-full outline-none"
+        className="bg-transparent font-bold text-xl w-full outline-0 mb-2 h-6"
         ref={titleRef}
         onKeyDown={(e) => createTodo(e)}
       />
       <textarea
         name="detail"
         placeholder="detail..."
-        className="bg-transparent w-full h-40 resize-none outline-none"
+        className="bg-transparent w-full h-40 resize-none outline-0 block"
         ref={detailRef}
         onKeyDown={(e) => createTodo(e)}
       />
