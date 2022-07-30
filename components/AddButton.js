@@ -6,10 +6,11 @@ const AddButton = ({ todosCollectionRef, setTodos }) => {
   const detailRef = useRef();
 
   const createTodo = async (e) => {
-    const title = titleRef.current.value;
-    const detail = detailRef.current.value;
-    const created_at = Date();
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+      const title = titleRef.current.value;
+      const detail = detailRef.current.value;
+      const created_at = Date();
+
       const docRef = await addDoc(todosCollectionRef, {
         title: title,
         detail: detail,
