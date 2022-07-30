@@ -22,6 +22,7 @@ const Main = () => {
       {todos.map((todo) => {
         return (
           <Todo
+            key={todo.id}
             todo={todo}
             todosCollectionRef={todosCollectionRef}
             setTodos={setTodos}

@@ -6,11 +6,10 @@ const AddButton = ({ todosCollectionRef, setTodos }) => {
   const detailRef = useRef();
 
   const createTodo = async (e) => {
+    const title = titleRef.current.value;
+    const detail = detailRef.current.value;
+    const created_at = Date();
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-      const title = titleRef.current.value;
-      const detail = detailRef.current.value;
-      const created_at = Date();
-
       const docRef = await addDoc(todosCollectionRef, {
         title: title,
         detail: detail,
@@ -40,14 +39,14 @@ const AddButton = ({ todosCollectionRef, setTodos }) => {
         type="text"
         name="title"
         placeholder="title..."
-        className="bg-transparent font-bold text-xl mb-2 w-full outline-none"
+        className="bg-transparent font-bold text-xl w-full outline-0 mb-2 h-6"
         ref={titleRef}
         onKeyDown={(e) => createTodo(e)}
       />
       <textarea
         name="detail"
         placeholder="detail..."
-        className="bg-transparent w-full h-40 resize-none outline-none"
+        className="bg-transparent w-full h-40 resize-none outline-0 block"
         ref={detailRef}
         onKeyDown={(e) => createTodo(e)}
       />
